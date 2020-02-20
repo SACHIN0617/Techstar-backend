@@ -56,6 +56,9 @@ task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
   deploy do
+    invoke :'rvm:use', 'ruby-2.6.3'
+    set :rvm_use_path, '/usr/share/rvm/bin/rvm'
+
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     comment "Deploying #{fetch(:application_name)} to #{fetch(:domain)}:#{fetch(:deploy_to)}"
