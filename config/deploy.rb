@@ -18,6 +18,8 @@ set :deploy_to, '/home/ubuntu/apps/techstar-api'
 set :repository, 'git@github.com:SACHIN0617/Techstar-backend.git'
 set :branch, 'master'
 set :user, 'ubuntu'
+set :rails_env, 'staging'
+
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
