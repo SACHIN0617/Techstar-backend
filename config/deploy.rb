@@ -1,5 +1,7 @@
 require 'mina/rails'
 require 'mina/git'
+require 'mina/puma'
+
 # require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (https://rvm.io)
 
@@ -11,9 +13,10 @@ require 'mina/git'
 
 set :application_name, 'techstar-backend'
 set :domain, '13.234.88.243'
-set :deploy_to, '/home/ubuntu/apps'
+set :deploy_to, '/home/ubuntu/apps/techstar-api'
 set :repository, 'git@github.com:SACHIN0617/Techstar-backend.git'
 set :branch, 'master'
+set :user, 'ubuntu'
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
@@ -56,7 +59,7 @@ task :deploy do
     comment "Deploying #{fetch(:application_name)} to #{fetch(:domain)}:#{fetch(:deploy_to)}"
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
-    invoke :'rvm:load_env_vars'
+    # invoke :'rvm:load_env_vars'
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     command %{#{fetch(:rails)} db:seed}
