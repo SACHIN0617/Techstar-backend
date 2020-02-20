@@ -1,0 +1,102 @@
+{
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+      "companies",
+      "count"
+    ],
+    "properties": {
+      "companies": {
+        "type": "array",
+        "title": "The Companies Schema",
+        "items": {
+          "type": "object",
+          "title": "The Items Schema",
+          "required": [
+            "id",
+            "name",
+            "city",
+            "state",
+            "founded_on",
+            "description",
+            "created_at",
+            "updated_at"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer",
+              "title": "The Id Schema",
+              "default": 0,
+              "examples": [
+                1
+              ]
+            },
+            "name": {
+              "type": "string",
+              "title": "The Name Schema",
+              "default": "",
+              "examples": [
+                "Cybrilla Technologies"
+              ]
+            },
+            "city": {
+              "type": "string",
+              "title": "The City Schema",
+              "default": "",
+              "examples": [
+                "Bangalore"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "title": "The State Schema",
+              "default": "",
+              "examples": [
+                "Karnataka"
+              ]
+            },
+            "founded_on": {
+              "type": "string",
+              "title": "The Founded_on Schema",
+              "default": "",
+              "examples": [
+                "2011-12-11"
+              ]
+            },
+            "description": {
+              "type": "string",
+              "title": "The Description Schema",
+              "default": "",
+              "examples": [
+                "Fintech Company"
+              ]
+            },
+            "created_at": {
+              "type": "string",
+              "title": "The Created_at Schema",
+              "default": "",
+              "examples": [
+                "2020-02-18T06:17:57.757Z"
+              ]
+            },
+            "updated_at": {
+              "type": "string",
+              "title": "The Updated_at Schema",
+              "default": "",
+              "examples": [
+                "2020-02-19T13:35:21.323Z"
+              ]
+            }
+          }
+        }
+      },
+      "count": {
+        "type": "integer",
+        "title": "The Count Schema",
+        "default": 0,
+        "examples": [
+          4
+        ]
+      }
+    }
+}
