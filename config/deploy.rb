@@ -38,8 +38,8 @@ task :remote_environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
+  set :rvm_use_path, '/usr/share/rvm/bin/rvm'
   invoke :'rvm:use', 'ruby-2.6.3'
-  set :rvm_use_path, '/usr/share/rvm/src/rvm/scripts/rvm'
 end
 
 # Put any custom commands you need to run at setup
@@ -56,8 +56,8 @@ task :deploy do
   # uncomment this line to make sure you pushed your local branch to the remote origin
   # invoke :'git:ensure_pushed'
   deploy do
-    invoke :'rvm:use', 'ruby-2.6.3'
     set :rvm_use_path, '/usr/share/rvm/bin/rvm'
+    invoke :'rvm:use', 'ruby-2.6.3'
 
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
