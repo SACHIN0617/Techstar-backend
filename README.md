@@ -11,7 +11,7 @@
 * Run Server `rails s`
 * Hit [locahost]`http://localhost:3000` on your browser
 
-# Step Run Test Cases
+# Step to Run Test Cases
 
 * run `rsepc`
 
