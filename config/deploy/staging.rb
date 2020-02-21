@@ -1,8 +1,8 @@
-server '13.234.88.243', user: 'sachin', roles: %w[app db web]
+server '13.234.88.243', user: 'ubuntu', roles: %w[app db web]
 
 set :rails_env, 'staging'
 set :puma_bind, %w[unix:///tmp/puma-staging.sock]
-set :deploy_to, "/home/techstar-api
+set :deploy_to, "/home/ubuntu/techstar-api"
 
 # role-based syntax
 # ==================
@@ -41,7 +41,6 @@ set :deploy_to, "/home/techstar-api
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
-#
 # The server-based syntax can be used to override options:
 # ------------------------------------
 # server "example.com",

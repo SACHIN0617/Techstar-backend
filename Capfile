@@ -38,6 +38,7 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rvm'
 require 'capistrano/bundler'
 require 'capistrano/rails/migrations'
+require 'capistrano/rails/db'
 # require 'capistrano/sidekiq/monit'
 # require 'capistrano/passenger'
 require 'capistrano/puma'

@@ -6,11 +6,12 @@ class Api::CompaniesController < ApplicationController
     end
 
     def create
-        @company = Company.create(company_params)
-        if @company 
-            render json: @company
+        company = Company.new
+        company.assign_attributes(company_params)
+        if company.save
+            render json: company
         else
-            render json: @company.errors.messages
+            render json: { errors: company.errors.messages }, status: :unprocessable_entity
         end
     end
 
@@ -25,11 +26,11 @@ class Api::CompaniesController < ApplicationController
 
     def update
         company
-        company = @company.update(company_params)
-        if @company 
+        @company.assign_attributes(company_params)
+        if @company.save
             render json: @company
         else
-            render json: @company.errors.messages
+            render json: { errors: @company.errors.messages }, status: :unprocessable_entity
         end
     end
 

@@ -1,26 +1,12 @@
 class Api::FoundersController < ApplicationController
     def create
         company
-        founder = @company.founders.create(founder_params)
-        if founder
+        founder = @company.founders.new(founder_params)
+        if founder.save
             render json: @company, serializer: Api::CompanySerializer
         else
-            render json: founder.errors.messages
+            render json: { errors: founder.errors.messages }, status: :unprocessable_entity
         end
-    end
-
-    def update
-        founder
-        render json: @founder.update(founder_params)
-    end
-
-    def destroy
-        founder
-        render json: @founder.destroy
-    end
-
-    def show
-        render json: founder
     end
 
     private
