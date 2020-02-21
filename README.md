@@ -17,6 +17,6 @@
 
 # Deployement
 
-* This application is deployed on AWS EC2 and link is `http://13.234.88.243/`
+* This application is deployed on AWS EC2 and link is http://13.234.88.243/
 * Capistrano is used for deployment
 
