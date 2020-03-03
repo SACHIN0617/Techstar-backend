@@ -1,8 +1,13 @@
 class Api::CompaniesController < ApplicationController
 
     def index
-        companies = Company.paginate(page: params[:page], per_page: 10)
-        render json: { companies: companies, count: Company.count }    
+        if (params[:query])
+            companies = Company.where("lower(companies.name) LIKE :search", search: "%#{params[:query].downcase}%")
+                               .paginate(page: params[:page], per_page: 10)
+        else
+            companies = Company.paginate(page: params[:page], per_page: 10)
+        end
+        render json: { companies: companies, count: companies.count }    
     end
 
     def create
@@ -38,6 +43,11 @@ class Api::CompaniesController < ApplicationController
         company
         company.destroy
     end
+
+    # def search
+    #     companies = Company.where("companies.name LIKE :search", search: "%#{params[:query]}%")
+    #     render json: { companies: companies, count: companies.count }
+    # end
 
     private
 
